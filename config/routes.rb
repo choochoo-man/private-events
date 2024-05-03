@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'events/update'
 
   resources :events
+  resources :users
+  resources :attendances
 
   root to: 'events#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

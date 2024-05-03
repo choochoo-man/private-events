@@ -1,0 +1,12 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+<ul>
+<%= @user.created_events.each do |event| %>
+<li>
+    <%= link_to event.name, event %>
+</li>
+<% end %>
+
+</ul>
+
+<%= link_to "New event", new_event_path(@event) %>
