@@ -1,11 +1,21 @@
 <h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<%# <p>Find me in app/views/events/index.html.erb</p> %>
 <ul>
-<%= @events.each do |event| %>
-<li>
-    <%= link_to event.name, event %>
-</li>
-<% end %>
+    List of future events
+    <% @future_events.each do |event| %>
+        <li>
+            <%= link_to event.name, event %>
+        </li>
+    <% end %>
+    <br>
+    <br>
+    List of past events
+
+    <% @past_events.each do |event| %>
+        <li>
+            <%= link_to event.name, event %>
+        </li>
+    <% end %>
 
 </ul>
 

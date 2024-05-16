@@ -1,0 +1,19 @@
+<%= form_with(model: @event) do |form| %>
+    <ul>
+        <li>
+            <%= form.label(:name, "Event name") %>
+            <%= form.text_field(:name) %>
+        </li>
+        <li>
+            <%= form.label(:description, "Event Description") %>
+            <%= form.text_field(:description) %>
+        </li>
+        <li>
+            <%= form.label(:time, "When is the Event") %>
+            <%= form.datetime_select :time, :minute_step => 15 %>
+        </li>
+        <li>
+            <%= form.submit("Update")%>
+        </li>
+    </ul>
+<% end %>

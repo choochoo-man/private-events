@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+      <%= link_to 'Edit Profile', edit_user_registration_path %> 
+    <% else %>
+      <%= button_to 'Sign in', new_user_session_path %>
+    <% end %>
+    <br>
+    <%= link_to 'All Events', events_index_path %>
+
     <%= yield %>
   </body>
 </html>

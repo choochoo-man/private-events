@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get 'events/edit'
   get 'events/update'
 
-  resources :events
+  resources :events do
+    member do
+      get 'attend'
+      get 'cancel_attendance'
+    end
+  end
   resources :users
   resources :attendances
 

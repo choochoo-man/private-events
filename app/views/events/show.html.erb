@@ -1,2 +1,43 @@
 <h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<%# <p>Find me in app/views/events/show.html.erb</p> %>
+
+<% if @event.creator == current_user %>
+    <%= link_to 'Edit event', edit_event_path %>
+<% end %>
+<br>
+<br>
+
+Created by:
+<%= link_to @event.creator.email, @event.creator %>
+<br>
+Event name:
+<%= @event.name %>
+<br>
+Event description:
+<%= @event.description %>
+<br>
+Event date and time:
+<%= @event.time %>
+
+<br>
+<br>
+<% if user_signed_in? %>
+    <% if @event.event_attendees.exclude?(current_user)%>
+        <%= link_to 'Attend', attend_event_path%>
+        <br>
+    <% else %>
+        <%= link_to 'Cancel attendance', cancel_attendance_event_path %>
+    <% end %>
+<% end %>
+
+<br>
+<br>
+
+List of attendees:
+<% @event.event_attendees.each do |attendee|%>
+<ul>
+    <li>
+        <%= link_to attendee.email, attendee %>
+    </li>
+</ul>
+<% end %>
