@@ -40,6 +40,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_url
+  end
+
   def cancel_attendance
     @event = Event.find(params[:id])
     @event.event_attendees.delete(current_user)
